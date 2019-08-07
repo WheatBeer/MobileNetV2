@@ -5,7 +5,7 @@ from PIL import Image
 from torchvision import transforms
 from utils.mobilenetv2 import MobileNetV2
 
-parser = argparse.ArgumentParser(description='Training MobileNetV2')
+parser = argparse.ArgumentParser(description='Inference only one image')
 
 parser.add_argument('-w', '--weights', metavar='PATH', 
                     default='./data/mobilenet_v2-b0353104.pth',
