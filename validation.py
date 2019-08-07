@@ -9,8 +9,7 @@ from utils.mobilenetv2 import MobileNetV2
 from utils import accuracy, AverageMeter
 
 def round_tensor(arr, n_digits):
-    rounded = torch.round(arr * 2**n_digits) 
-    rounded = rounded / (2**n_digits)
+    rounded = torch.round(arr * 2**n_digits) / (2**n_digits)
     return rounded
 
 parser = argparse.ArgumentParser(description='Float Shift Validation')
@@ -49,7 +48,8 @@ def main():
                                               shuffle=True,
                                               num_workers=4)
     
-    print('===> batch size:', args.batch, '| 1000 classes x 50 images') 
+    print('1000 classes x 50 images preprocessing is done!')
+    print('===> batch size:', args.batch) 
     
     # Initialize values
     losses = AverageMeter('Loss', ':.4e')
