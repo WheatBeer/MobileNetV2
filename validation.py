@@ -48,7 +48,7 @@ def main():
                                               shuffle=True,
                                               num_workers=4)
     
-    print('1000 classes x 50 images preprocessing is done!')
+    print('===> 1000 classes x 50 images preprocessing is done!')
     print('===> batch size:', args.batch) 
     
     # Initialize values
