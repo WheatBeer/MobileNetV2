@@ -7,6 +7,7 @@ from torchvision import transforms
 import torchvision.datasets as datasets
 from utils.mobilenetv2 import MobileNetV2
 from utils import accuracy, AverageMeter
+from tqdm import tqdm
 
 def round_tensor(arr, n_digits):
     rounded = torch.round(arr * 2**n_digits) / (2**n_digits)
@@ -53,8 +54,8 @@ def main():
     
     # Initialize values
     losses = AverageMeter('Loss', ':.4e')
-    top1 = AverageMeter('Top 1 accuracy', ':6.5f')
-    top5 = AverageMeter('Top 5 accuracy', ':6.5f')
+    top1 = AverageMeter('Top 1 accuracy', ':6.3f')
+    top5 = AverageMeter('Top 5 accuracy', ':6.3f')
     
     # Define the model
     model = MobileNetV2()
@@ -79,9 +80,8 @@ def main():
     # Foward
     print('===> Start inferencing!')
     with torch.no_grad():
-        for i, data in enumerate(test_loader, 0):
-            # get the inputs
-            inputs, target = data
+        for i, (inputs, target) in enumerate(tqdm(test_loader)):
+            
             inputs, target = inputs.to(device), target.to(device)
 
             outputs = model(inputs)
