@@ -93,7 +93,7 @@ def main():
             top5.update(prec5, inputs.size(0))
         print('===>', top1.__str__(),'\t', top5.__str__())
     print('===> Test is done!')
-    return [top1.val, top1.avg , top5.val, top5.avg]
+    return (losses.avg, top1.avg)
 
 
 if __name__ == '__main__':
