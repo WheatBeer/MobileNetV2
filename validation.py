@@ -29,8 +29,6 @@ parser.add_argument('-w', '--weights', metavar='PATH',
                     default='./data/mobilenet_v2-b0353104.pth',
                     help='Pretrained parameters PATH | Default: ./data/mobilenet_v2-b0353104.pth')
 
-
-
 def main():
     args = parser.parse_args()
     
