@@ -81,13 +81,13 @@ def main():
     with torch.no_grad():
         for i, data in enumerate(test_loader, 0):
             # get the inputs
-            inputs, labels = data
-            inputs, labels = inputs.to(device), labels.to(device)
+            inputs, target = data
+            inputs, target = inputs.to(device), target.to(device)
 
             outputs = model(inputs)
-            loss = criterion(outputs, labels)
+            loss = criterion(outputs, target)
             
-            prec1, prec5 = accuracy(outputs.data, labels.data, topk=(1, 5))
+            prec1, prec5 = accuracy(outputs.data, target.data, topk=(1, 5))
             losses.update(loss.data, inputs.size(0))
             top1.update(prec1, inputs.size(0))
             top5.update(prec5, inputs.size(0))
