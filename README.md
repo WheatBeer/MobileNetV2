@@ -1,6 +1,8 @@
 # MobileNetV2_8bits
 MobileNetV2 8-bits Precision Validation
 
+MobileNetV2: Inverted Residuals and Linear Bottlenecks" <https://arxiv.org/abs/1801.04381>
+
 ## MobileNetV2(Model + Pretrained weights & bias)
 - https://pytorch.org/hub/pytorch_vision_mobilenet_v2/
 
