@@ -15,11 +15,11 @@ def round_tensor(arr, n_digits):
 
 parser = argparse.ArgumentParser(description='Float Shift Validation')
 
-parser.add_argument('-b', '--batch', type=int, metavar='SIZE', 
+parser.add_argument('-b', '--batch', type=int, metavar='#', 
                     default=400, help='Batch Size | Default: 400')
 
 parser.add_argument('-n', '--n-digits', type=int, default=0, 
-                    metavar='N', help='Round N digits | Default: 0')
+                    metavar='#', help='Round N digits | Default: 0')
 
 parser.add_argument('-p', '--path', metavar='PATH', 
                     default='/Data/ImageNet/ILSVRC2012/', 
