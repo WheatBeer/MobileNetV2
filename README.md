@@ -35,9 +35,9 @@ MobileNetV2 8-bits Precision Validation & Retraining
   Inference only one image
 
   optional arguments:
-  -h, --help                    show this help message and exit
-  -w PATH, --weights PATH       Pretrained parameters PATH | Default: ./data/mobilenet_v2-b0353104.pth                      
-  -i PATH, --input PATH         Input image PATH | Default: ./data/dog.jpg                
+    -h, --help                    show this help message and exit
+    -w PATH, --weights PATH       Pretrained parameters PATH | Default: ./data/mobilenet_v2-b0353104.pth                      
+    -i PATH, --input PATH         Input image PATH | Default: ./data/dog.jpg                
   ~~~
   
   <br />
