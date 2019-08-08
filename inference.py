@@ -1,6 +1,7 @@
 import json
 import argparse
 import torch
+import torch.nn as nn
 from PIL import Image
 from torchvision import transforms
 from utils.mobilenetv2 import MobileNetV2
