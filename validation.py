@@ -32,6 +32,7 @@ parser.add_argument('-w', '--weights', metavar='PATH',
 def main():
     args = parser.parse_args()
     
+    print('===> Images preprocessing starts!')
     # Data Load & Preprocessing
     preprocess = transforms.Compose([
         transforms.Resize(256),
@@ -61,7 +62,6 @@ def main():
     model = MobileNetV2()
     criterion = nn.CrossEntropyLoss()
     model.load_state_dict(torch.load(args.weights))
-#     model = torch.load(pth_path)
     model.eval()
     
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
