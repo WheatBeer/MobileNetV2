@@ -155,6 +155,9 @@ def main():
         model.load_state_dict(torch.load(args.weights))
     
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+    if device == 'cpu':
+      print('===> You have to use GPUs')
+      exit()
     print('===> Test on', device)
     model.to(device)
     if torch.cuda.device_count() > 1:
