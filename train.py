@@ -125,6 +125,11 @@ def main():
     best_prec1 = 0
     multi_gpu = False
     
+    device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+    if device == 'cpu':
+      print('===> You have to use GPUs')
+      exit()
+    
     preprocess = transforms.Compose([
     transforms.Resize(256),
     transforms.CenterCrop(224),
@@ -153,11 +158,7 @@ def main():
     model = MobileNetV2()
     if args.pretrained:
         model.load_state_dict(torch.load(args.weights))
-    
-    device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
-    if device == 'cpu':
-      print('===> You have to use GPUs')
-      exit()
+        
     print('===> Test on', device)
     model.to(device)
     if torch.cuda.device_count() > 1:
