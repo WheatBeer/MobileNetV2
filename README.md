@@ -15,7 +15,7 @@ MobileNetV2 8-bits Precision Validation & Retraining
 - Paper: ["Inverted Residuals and Linear Bottlenecks"][paper]
 - Model Architecture: [model_summary.txt][model_summuary.txt] or 
 ```python3 model_summary.py```
-- [Code][code] & [Imagenet Dataset][imagenet]
+- [Model Code][code] & [Imagenet Dataset][imagenet]
 
   ### Top 1 & Top 5
   - Using pretrained model(./data/mobilenet_v2-b0353104.pth)
@@ -27,7 +27,8 @@ MobileNetV2 8-bits Precision Validation & Retraining
 ## Description
 
   ### inference.py
-  - You can inference an image.
+  - Inference form an image.
+  - Run on CPU and GPU.
   ~~~
   $ python3 inference.py -h
   usage: inference.py [-h] [-w PATH] [-i PATH]
@@ -43,8 +44,9 @@ MobileNetV2 8-bits Precision Validation & Retraining
   <br />
   
   ### validation.py
-  - Validate a trained model(defalut: pretrained model)
-  - If n_digits is 0(default), it just normal validation.
+  - Validate a trained model with ImageNet validation set.
+  - If n_digits is 0(default), it is same as normal validation.
+  - Run on CPU and GPU.
   ~~~
   $ python3 validation.py -h
   usage: validation.py [-h] [-b #] [-n #] [-p PATH] [-w PATH]
@@ -65,6 +67,7 @@ MobileNetV2 8-bits Precision Validation & Retraining
   
   ### train.py
   - 
+  - Run on only GPU.
   ~~~
   $ python3 train.py -h
   usage: train.py [-h] [-b #] [-e #] [-l #] [-n #] [-d T/F] [--pretrained T/F] [-s T/F] [-p PATH] [-w PATH]
