@@ -130,6 +130,7 @@ def main():
         print('===> You have to use GPUs')
         exit() 
     
+    print('===> Start image preprocessing!')
     preprocess = transforms.Compose([
     transforms.Resize(256),
     transforms.CenterCrop(224),
