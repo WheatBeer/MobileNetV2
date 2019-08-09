@@ -24,7 +24,7 @@ MobileNetV2 8-bits Precision Validation & Retraining
 
 <br />
 
-## Description
+## Usage
 
   ### inference.py
   - Inference form an image.
