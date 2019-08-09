@@ -126,9 +126,9 @@ def main():
     multi_gpu = False
     
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
-    if device == 'cpu':
-      print('===> You have to use GPUs')
-      exit()
+    if str(device) == 'cpu':
+        print('===> You have to use GPUs')
+        exit() 
     
     preprocess = transforms.Compose([
     transforms.Resize(256),
