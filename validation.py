@@ -32,7 +32,7 @@ parser.add_argument('-w', '--weights', metavar='PATH',
 def main():
     args = parser.parse_args()
     
-    print('===> Images preprocessing starts!')
+    print('===> Start image preprocessing!')
     # Data Load & Preprocessing
     preprocess = transforms.Compose([
         transforms.Resize(256),
