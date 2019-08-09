@@ -123,6 +123,7 @@ def main():
     args = parser.parse_args()
     epoches = args.epoch
     best_prec1 = 0
+    multi_gpu = False
     
     preprocess = transforms.Compose([
     transforms.Resize(256),
@@ -157,6 +158,7 @@ def main():
     print('===> Test on', device)
     model.to(device)
     if torch.cuda.device_count() > 1:
+        multi_gpu = True
         model = nn.DataParallel(model)
         print('===> Using', torch.cuda.device_count(), 'GPUs!')
     
@@ -183,12 +185,18 @@ def main():
         if args.save: # save all models after every epoch
             epoch_s = str(epoch)
             save_file_name = './data/retrain_data' + epoch_s + '.pth'
-            torch.save(model.state_dict(), save_file_name)
+            if multi_gpu:
+                torch.save(model.module.state_dict(), save_file_name)
+            else:
+                torch.save(model.state_dict(), save_file_name)
         else: # save best model
             if prec1 > best_prec1:
                 best_prec1 = prec1
                 best_model = copy.deepcopy(model)
-                torch.save(best_model.state_dict(),'./data/best_model.pth')
+                if multi_gpu:
+                    torch.save(best_model.module.state_dict(),'./data/best_model.pth')
+                else:
+                    torch.save(best_model.state_dict(),'./data/best_model.pth')
 
 if __name__ == '__main__':
     main()
