@@ -39,8 +39,8 @@ def main():
         transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
     ])
     input_tensor = preprocess(Image.open(args.input))
-    input_batch = input_tensor.unsqueeze(0)
-    input_batch = input_batch.to(device)
+    input = input_tensor.unsqueeze(0)
+    input = input.to(device)
     print('===> Image preprocessing is done!')
     
     idx2label = []
@@ -51,7 +51,7 @@ def main():
         cls2label = {class_idx[str(k)][0]: class_idx[str(k)][1] for k in range(len(class_idx))}
         
     with torch.no_grad():
-        output = model(input_batch)
+        output = model(input)
     output_pro = torch.nn.functional.softmax(output[0], dim=0)
     values, index = torch.max(output_pro, 0)
     print('===> Probability:', '%3.1f' %(float(values)*100),'%')
