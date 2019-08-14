@@ -29,6 +29,9 @@ def main():
 	elif args.info_num == 2:
 		model.load_state_dict(torch.load(args.weights))
 		print(model.state_dict())
+		# Or 
+		# for param in model.parameters():
+    	#	print(param)
 	else:
 		print('You must put the information number(-i / --info_num)')
 		
