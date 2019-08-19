@@ -45,18 +45,16 @@ MobileNetV2 8-bits Precision Validation & Retraining
   
   ### validation.py
   - Validate a trained model with ImageNet validation set.
-  - If n_digits is 0(default), it is same as normal validation.
   - Run on CPU and GPU.
   ~~~
   $ python3 validation.py -h
-  usage: validation.py [-h] [-b #] [-n #] [-p PATH] [-w PATH]
+  usage: validation.py [-h] [-b #] [-p PATH] [-w PATH]
   
   Float Shift Validation
 
   optional arguments:
     -h, --help                   show this help message and exit
     -b #, --batch #              Batch Size | Default: 400
-    -n #, --n-digits #           Round N digits | Default: 0
     -p PATH, --path PATH         Imagenet Dataset PATH | Default: /Data/ImageNet/ILSVRC2012/                
     -w PATH, --weights PATH      Pretrained parameters PATH | Default: ./data/mobilenet_v2-b0353104.pth
   ~~~
@@ -70,7 +68,7 @@ MobileNetV2 8-bits Precision Validation & Retraining
   - Run on only GPU.
   ~~~
   $ python3 train.py -h
-  usage: train.py [-h] [-b #] [-e #] [-l #] [-n #] [-d T/F] [--pretrained T/F] [-s T/F] [-p PATH] [-w PATH]
+  usage: train.py [-h] [-b #] [-e #] [-l #] [-d T/F] [--pretrained T/F] [-s T/F] [-p PATH] [-w PATH]
 
   Training MobileNetV2
 
@@ -79,7 +77,6 @@ MobileNetV2 8-bits Precision Validation & Retraining
     -b #, --batch #             Batch Size | Default: 400
     -e #, --epoch #             Epoches | Default: 1
     -l #, --lr #                Learning Rate | Default: 0.045
-    -n #, --n-digits #          Round N digits | Default: 0
     -d T/F, --decay T/F         Learning Rate Decay | Default: True
     --pretrained T/F            Train from pretrained model | Default: True
     -s T/F, --save T/F          Save all models after every epoch(True) | Save best model(False)
@@ -89,7 +86,7 @@ MobileNetV2 8-bits Precision Validation & Retraining
   - Results
   <b>(will be added soon)</b>
   ~~~
-  python3 train.py -e 10 -l 0.001 -n 5 -d 0
+  python3 train.py -e 10 -l 0.001 -d 0
   ~~~
 
 [pytorch]: https://pytorch.org/
