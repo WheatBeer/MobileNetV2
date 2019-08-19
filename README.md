@@ -1,5 +1,5 @@
-# MobileNetV2_8bits
-MobileNetV2 8-bits Precision Validation & Retraining
+# MobileNetV2 Reduced Precision
+MobileNetV2 Reduced Precision Validation & Retraining
 
 <br />
 
