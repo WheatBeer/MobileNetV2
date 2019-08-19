@@ -20,30 +20,29 @@ def masked_fp32(num, n_digits):
     return struct.unpack('!f',struct.pack('!I', int(masked, 2)))[0]
 
 def main():
-	args = parser.parse_args()
+    args = parser.parse_args()
 
-	model = MobileNetV2()
-	model.load_state_dict(torch.load(args.weights))
-	model.eval()
-	
-	for i, param in enumerate(tqdm(model.parameters())):
-    	if len(param.shape) == 1:
-        	for w in range(param.shape[0]):
-            	param[w] = masked_fp32(param[w], args.n_digits)
-    	if len(param.shape) == 2:
-        	for w in range(param.shape[0]):
-            	for x in range(param.shape[1]):
-                	param[w][x] = masked_fp32(param[w][x], args.n_digits)
-    	if len(param.shape) == 4:
-        	for w in range(param.shape[0]):
-            	for x in range(param.shape[1]):
-                	for y in range(param.shape[2]):
-                    	for z in range(param.shape[3]):
-                        	param[w][x][y][z] = masked_fp32(param[w][x][y][z], args.n_digits)
-	
-	save_file_name = './data/masked' + str(args.n_digits) + '.pth'
-	torch.save(model.state_dict(), save_file_name)
+    model = MobileNetV2()
+    model.load_state_dict(torch.load(args.weights))
+    model.eval()
+
+    for i, param in enumerate(tqdm(model.parameters())):
+        if len(param.shape) == 1:
+            for w in range(param.shape[0]):
+                param[w] = masked_fp32(param[w], args.n_digits)
+        if len(param.shape) == 2:
+            for w in range(param.shape[0]):
+                for x in range(param.shape[1]):
+                    param[w][x] = masked_fp32(param[w][x], args.n_digits)
+        if len(param.shape) == 4:
+            for w in range(param.shape[0]):
+                for x in range(param.shape[1]):
+                    for y in range(param.shape[2]):
+                        for z in range(param.shape[3]):
+                            param[w][x][y][z] = masked_fp32(param[w][x][y][z], args.n_digits)
+
+    save_file_name = './data/masked' + str(args.n_digits) + '.pth'
+    torch.save(model.state_dict(), save_file_name)
 
 if __name__ == '__main__':
     main()
-	
