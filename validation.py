@@ -9,17 +9,10 @@ from utils.mobilenetv2 import MobileNetV2
 from utils import accuracy, AverageMeter
 from tqdm import tqdm
 
-def round_tensor(arr, n_digits):
-    rounded = torch.round(arr * 2**n_digits) / (2**n_digits)
-    return rounded
-
 parser = argparse.ArgumentParser(description='Float Shift Validation')
 
 parser.add_argument('-b', '--batch', type=int, metavar='#', 
                     default=400, help='Batch Size | Default: 400')
-
-parser.add_argument('-n', '--n-digits', type=int, default=0, 
-                    metavar='#', help='Round N digits | Default: 0')
 
 parser.add_argument('-p', '--path', metavar='PATH', 
                     default='/Data/ImageNet/ILSVRC2012/', 
@@ -70,12 +63,6 @@ def main():
     if torch.cuda.device_count() > 1:
         model = nn.DataParallel(model)
         print('===> Using', torch.cuda.device_count(), 'GPUs!')
-    
-    # round up
-    if args.n_digits > 0:
-        print('===> Round up(', args.n_digits,')')
-        for param in model.parameters():
-            param.data = round_tensor(param.data, args.n_digits)
 
     # Foward
     print('===> Start inferencing!')

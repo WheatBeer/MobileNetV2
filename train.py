@@ -23,9 +23,6 @@ parser.add_argument('-e', '--epoch', type=int, metavar='#',
 parser.add_argument('-l', '--lr', type=float, metavar='#', 
                     default=0.045, help='Learning Rate | Default: 0.045')
 
-parser.add_argument('-n', '--n-digits', type=int, metavar='#', 
-                    default=0, help='Round N digits | Default: 0')
-
 parser.add_argument('-d', '--decay', type=bool, metavar='T/F',
                     default=True, help='Learning Rate Decay | Default: True')
 
@@ -42,10 +39,6 @@ parser.add_argument('-p', '--path', metavar='PATH',
 parser.add_argument('-w', '--weights', metavar='PATH', 
                     default='./data/mobilenet_v2-b0353104.pth',
                     help='Pretrained parameters PATH | Default: ./data/mobilenet_v2-b0353104.pth')
-
-def round_tensor(arr, n_digits):
-    rounded = torch.round(arr * 2**n_digits) / (2**n_digits)
-    return rounded
 
 def train(train_loader, model, criterion, optimizer, decay):
     # Initialize values
@@ -166,12 +159,6 @@ def main():
         multi_gpu = True
         model = nn.DataParallel(model)
         print('===> Using', torch.cuda.device_count(), 'GPUs!')
-    
-    # round up
-    if args.n_digits > 0:
-        print('===> Round up(', args.n_digits,')')
-        for param in model.parameters():
-            param.data = round_tensor(param.data, args.n_digits)
 
     criterion = nn.CrossEntropyLoss()
     optimizer = torch.optim.RMSprop(model.parameters(), lr=args.lr)
