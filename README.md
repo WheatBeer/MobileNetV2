@@ -26,7 +26,7 @@ MobileNetV2 Reduced Precision Validation & Retraining
 
 ## Usage
   
-  ### model_info.py
+  ### 1. model_info.py
   - Model Information(Architecture, Parameters, etc.)
   - If you want to get other pretrained model's parameter values, you have to change the weight path(-w).
   - All default outputs are in the model_info folder. 
@@ -42,7 +42,7 @@ MobileNetV2 Reduced Precision Validation & Retraining
     -i #, --info_num #            Info you want | 0: summary 1: arcitecture 2: paramters value | Default: 0      
   ~~~
 
-  ### inference.py
+  ### 2. inference.py
   - Inference form an image.
   - Run on CPU and GPU.
   ~~~
@@ -59,7 +59,7 @@ MobileNetV2 Reduced Precision Validation & Retraining
   
   <br />
   
-  ### validation.py
+  ### 3. validation.py
   - Validate a trained model with ImageNet validation set.
   - Run on CPU and GPU.
   ~~~
@@ -77,7 +77,7 @@ MobileNetV2 Reduced Precision Validation & Retraining
   
   <br />
   
-  ### train.py
+  ### 4. train.py
   - Train from (pre)trained model using ImageNet training set(--pretrained True) or, train from scratch(--pretrained False).
   - After every epoch, validation is performed.  
   - Run on only GPU.
@@ -101,7 +101,7 @@ MobileNetV2 Reduced Precision Validation & Retraining
   
   <br />
   
-  ### mask_frac.py
+  ### 5. mask_frac.py
   - Mask parameter values' fractional bits.
   - Takes about 2 minutes
   > ex) 32FP(sign: 1bit, exp: 8bits, frac: 23bits)<br /><br />
