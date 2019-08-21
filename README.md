@@ -74,13 +74,11 @@ MobileNetV2 Reduced Precision Validation & Retraining
     -p PATH, --path PATH         Imagenet Dataset PATH | Default: /Data/ImageNet/ILSVRC2012/                
     -w PATH, --weights PATH      Pretrained parameters PATH | Default: ./data/mobilenet_v2-b0353104.pth
   ~~~
-  - Results
-  <b>(will be added soon)</b>
   
   <br />
   
   ### train.py
-  - 
+  - Train from (pre)trained model using ImageNet training set(--pretrained True) or, train from scratch(--pretrained False).
   - Run on only GPU.
   ~~~
   $ python3 train.py -h
@@ -99,11 +97,28 @@ MobileNetV2 Reduced Precision Validation & Retraining
     -p PATH, --path PATH        Imagenet Dataset PATH | Default: /Data/ImageNet/ILSVRC2012/
     -w PATH, --weights PATH     Pretrained parameters PATH | Default: ./data/mobilenet_v2-b0353104.pth
   ~~~
-  - Results
-  <b>(will be added soon)</b>
+  
+  <br />
+  
+  ### mask_frac.py
+  - 
   ~~~
-  python3 train.py -e 10 -l 0.001 -d 0
-  ~~~
+  $ python3 train.py -h
+  usage: mask_frac.py [-h] [-n #] [-w PATH]
+
+  Mask Weights(FP32) Fractional
+
+  optional arguments:
+    -h, --help                  show this help message and exit
+    -n #, --n-digits #          Fractional bits | Default: 5
+    -w PATH, --weights PATH     Pretrained parameters PATH | Default: ./data/mobilenet_v2-b0353104.pth
+   ~~~
+
+## Results
+<b>(will be added soon)</b>
+~~~
+python3 train.py -e 10 -l 0.001 -d 0 -w ./data/masked5.pth
+~~~
 
 [pytorch]: https://pytorch.org/
 [paper]: https://arxiv.org/abs/1801.04381
