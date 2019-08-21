@@ -109,9 +109,9 @@ MobileNetV2 Reduced Precision Validation & Retraining
     --------------------------------------------<br />
     |s|-exponent-|----------fractional----------<br />
     --------------------------------------------<br /><br />
-    - After <br />
+    - After(Remain n_digits bits in fractional) <br />
     --------------------------------------------<br />
-    |s|-exponent-|-n_digits-|-------zeros-------<br />
+    |s|-exponent-|--frac--|--------zeros--------<br />
     --------------------------------------------<br />
   ~~~
   $ python3 train.py -h
