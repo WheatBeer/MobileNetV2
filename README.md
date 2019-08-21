@@ -104,13 +104,16 @@ MobileNetV2 Reduced Precision Validation & Retraining
   ### mask_frac.py
   - Mask parameter values' fractional bits.
   - Takes about 2 minutes
-  ex) 32FP(sign: 1bit, exp: 8bits, frac: 23bits) 
-               --------------------------------------------
-  Before:      |s| exponent |         fractional 
-               --------------------------------------------
-               --------------------------------------------
-  After:       |s| exponent | n_digits |       zeros 
-               --------------------------------------------
+  > ex) 
+    32FP(sign: 1bit, exp: 8bits, frac: 23bits)<br /> 
+    - Before <br />
+    --------------------------------------------<br />
+    |s| exponent |         fractional <br />
+    --------------------------------------------<br />
+    - After <br />
+    --------------------------------------------<br />
+    |s| exponent | n_digits |       zeros <br />
+    --------------------------------------------<br />
   ~~~
   $ python3 train.py -h
   usage: mask_frac.py [-h] [-n #] [-w PATH]
