@@ -79,6 +79,7 @@ MobileNetV2 Reduced Precision Validation & Retraining
   
   ### train.py
   - Train from (pre)trained model using ImageNet training set(--pretrained True) or, train from scratch(--pretrained False).
+  - After every epoch, validation is performed.  
   - Run on only GPU.
   ~~~
   $ python3 train.py -h
@@ -101,7 +102,15 @@ MobileNetV2 Reduced Precision Validation & Retraining
   <br />
   
   ### mask_frac.py
-  - 
+  - Mask parameter values' fractional bits.
+  - Takes about 2 minutes
+  ex) 32FP(sign: 1bit, exp: 8bits, frac: 23bits) 
+               --------------------------------------------
+  Before:      |s| exponent |         fractional 
+               --------------------------------------------
+               --------------------------------------------
+  After:       |s| exponent | n_digits |       zeros 
+               --------------------------------------------
   ~~~
   $ python3 train.py -h
   usage: mask_frac.py [-h] [-n #] [-w PATH]
