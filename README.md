@@ -103,7 +103,8 @@ MobileNetV2 Reduced Precision Validation & Retraining
   
   ### 5. mask_frac.py
   - Mask parameter values' fractional bits.
-  - Takes about 2 minutes
+  - Output will be saved in data folder.
+  - Takes about 2 minutes.
   > ex) 32FP(sign: 1bit, exp: 8bits, frac: 23bits)<br /><br />
     - Before <br />
     --------------------------------------------<br />
