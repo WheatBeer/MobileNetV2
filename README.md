@@ -13,18 +13,25 @@ MobileNetV2 Reduced Precision Validation & Retraining
 
 ## MobileNetV2(Model + Pretrained weights & biases)
 - Paper: ["Inverted Residuals and Linear Bottlenecks"][paper]
-- Model Architecture: [model_summary.txt][model_summuary.txt] or 
-```python3 model_summary.py```
 - [Model Code][code] & [Imagenet Dataset][imagenet]
+- Model Architecture: See the [model_info folder][model_info]'s text files or run model_info.py
+
 
   ### Top 1 & Top 5
-  - Using pretrained model(./data/mobilenet_v2-b0353104.pth)
+  - Pretrained model: './data/mobilenet_v2-b0353104.pth'
   - Top 1 Accuracy: 71.88 % 	 
   - Top 5 Accuracy: 90.29 %
 
 <br />
 
 ## Usage
+  
+  ### model_info.py
+  - 
+  ~~~
+  $ python3 model_info.py -h
+  
+  ~~~
 
   ### inference.py
   - Inference form an image.
@@ -92,5 +99,5 @@ MobileNetV2 Reduced Precision Validation & Retraining
 [pytorch]: https://pytorch.org/
 [paper]: https://arxiv.org/abs/1801.04381
 [code]: https://pytorch.org/hub/pytorch_vision_mobilenet_v2/
-[model_summuary.txt]: https://github.com/WheatBeer/MobileNetV2_8bits/blob/master/model_summary.txt
 [imagenet]: http://www.image-net.org/challenges/LSVRC/2012/nonpub-downloads
+[model_info]: https://github.com/WheatBeer/MobileNetV2/tree/master/model_info
