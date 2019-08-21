@@ -29,7 +29,7 @@ MobileNetV2 Reduced Precision Validation & Retraining
   ### model_info.py
   - Model Information(Architecture, Parameters, etc.)
   - If you want to get other pretrained model's parameter values, you have to change the weight path(-w).
-  - All defalut outputs are in the model_info folder. 
+  - All default outputs are in the model_info folder. 
   ~~~
   $ python3 model_info.py -h
   usage: model_info.py [-h] [-w PATH] [-i #]
