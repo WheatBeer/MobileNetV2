@@ -108,11 +108,11 @@ MobileNetV2 Reduced Precision Validation & Retraining
     32FP(sign: 1bit, exp: 8bits, frac: 23bits)<br /> 
     - Before <br />
     --------------------------------------------<br />
-    |s| exponent |         fractional <br />
+    |s|-exponent-|----------fractional----------<br />
     --------------------------------------------<br />
     - After <br />
     --------------------------------------------<br />
-    |s| exponent | n_digits |       zeros <br />
+    |s|-exponent-|-n_digits-|-------zeros-------<br />
     --------------------------------------------<br />
   ~~~
   $ python3 train.py -h
