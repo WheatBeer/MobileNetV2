@@ -126,12 +126,6 @@ MobileNetV2 Reduced Precision Validation & Retraining
     -w PATH, --weights PATH     Pretrained parameters PATH | Default: ./data/mobilenet_v2-b0353104.pth
    ~~~
 
-## Results
-<b>(will be added soon)</b>
-~~~
-python3 train.py -e 10 -l 0.001 -d 0 -w ./data/masked5.pth
-~~~
-
 [pytorch]: https://pytorch.org/
 [paper]: https://arxiv.org/abs/1801.04381
 [code]: https://pytorch.org/hub/pytorch_vision_mobilenet_v2/
