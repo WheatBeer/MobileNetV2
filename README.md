@@ -1,5 +1,4 @@
-# MobileNetV2 Reduced Precision
-MobileNetV2 Reduced Precision Validation & Retraining
+# MobileNetV2 Validation & Retraining with Reduced-precision Weights
 
 <br />
 
